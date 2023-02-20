@@ -1,0 +1,36 @@
+<div class="infos-wrapper">
+    <div id="nom-jeu">
+        <div class="text">Fiche: {{ this.name }}</div>
+        <div class="box"></div>
+    </div>
+    <div id="mode-jeu">
+        <div class="text">Mode:</div>
+        <div class="box">{{ this.roomService.game.mode }}</div>
+    </div>
+    <div id="nombre-differences">
+        <div class="text">Nombre de différences:{{ this.roomService.game.nbDifferences }}</div>
+        <div class="box"></div>
+    </div>
+    <div
+        id="nombre-differences-trouver"
+        *ngIf="this.roomService.game.mode === 'limited-time-coop' || this.roomService.game.mode === 'limited-time-solo'"
+    >
+        <div class="text">
+            Nombre de différences trouvées:{{ this.roomService.game.player1.differenceCounter + this.roomService.game.player2.differenceCounter }}
+        </div>
+        <div class="box"></div>
+    </div>
+    <div id="penalite">
+        <div class="text">Pénalité (si erreur):</div>
+        <div class="box">5s</div>
+    </div>
+    <div class="horloge">
+        <div class="text">Temps:</div>
+        <div class="box" *ngIf="this.limitedTimeVerifications()">
+            {{ 1000 * (this.roomService.game.maxTime - this.roomService.game.time) | date: 'mm:ss' }}
+        </div>
+        <div class="box" *ngIf="this.roomService.game.mode === 'classic-solo' || this.roomService.game.mode === 'classic-multi'">
+            {{ 1000 * this.roomService.game.time | date: 'mm:ss' }}
+        </div>
+    </div>
+</div>

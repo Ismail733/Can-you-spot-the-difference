@@ -1,0 +1,31 @@
+<div class="avenue-messenger">
+    <div class="chat">
+        <div class="chat-title">
+            <h1>CHAT</h1>
+        </div>
+        <div class="messages" #messageContainer>
+            <div class="messages-content">
+                <div *ngFor="let message of messages">
+                    <div class="message message-personal" *ngIf="message.username === this.roomService.game.player1.username">
+                        {{ message.text }}
+                        <div class="timestamp">{{ message.time | date: 'MM/dd/yyyy @ h:mma' }}</div>
+                    </div>
+                    <div class="message opponent" *ngIf="message.username === this.roomService.game.player2.username">
+                        {{ message.text }}
+                        <div class="timestamp">{{ message.time | date: 'MM/dd/yyyy @ h:mma' }}</div>
+                    </div>
+                    <div class="message room" *ngIf="message.username === 'server'">{{ message.time | date: 'HH:mm:ss' }} - {{ message.text }}</div>
+                    <div class="message update" *ngIf="message.username === 'server/update'">
+                        {{ message.time | date: 'HH:mm:ss' }} - {{ message.text }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="message-box" *ngIf="this.roomService.game.mode === 'classic-multi' || this.roomService.game.mode === 'limited-time-coop'">
+            <form [formGroup]="frmMessage" (ngSubmit)="sendMessageToServer()" (keyup.enter)="sendMessageToServer()">
+                <textarea type="text" class="message-input" formControlName="message" maxlength="200" placeholder="Votre message..."></textarea>
+                <button type="submit" class="message-submit">Envoyer</button>
+            </form>
+        </div>
+    </div>
+</div>

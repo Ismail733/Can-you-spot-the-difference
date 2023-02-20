@@ -1,0 +1,11 @@
+<app-header-game-page #1 [gameName]="gameName"></app-header-game-page>
+<body>
+    <div class="game-container">
+        <app-play-area [urlImageOriginal]="imageOriginalURL" [urlImageModified]="imageModifiedURL" [gameIDs]="gameIDs"></app-play-area>
+        <app-clues-canvas></app-clues-canvas>
+        <app-chat-box></app-chat-box>
+    </div>
+    <div class="exit-button-wrapper">
+        <button id="exit-button" (click)="quitGame()">Abandonner la partie</button>
+    </div>
+</body>

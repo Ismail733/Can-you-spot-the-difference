@@ -1,0 +1,28 @@
+<div *ngIf="isUsernameMode && !isSomeoneWaiting">
+    <mat-dialog-content>
+        <h1>Veuillez entrer un nom d'utilisateur et sélectionner un mode :</h1>
+        <input matInput [(ngModel)]="username" />
+    </mat-dialog-content>
+    <div mat-dialog-actions>
+        <button mat-button (click)="checkUsername('solo')" cdkFocusInitial>Jouer tout seul</button>
+        <button mat-button (click)="checkUsername('multi')" cdkFocusInitial>Créer une partie coopérative</button>
+    </div>
+</div>
+<div *ngIf="isUsernameMode && isSomeoneWaiting">
+    <mat-dialog-content>
+        <h1>Veuillez entrer un nom d'utilisateur et sélectionner un mode :</h1>
+        <input matInput [(ngModel)]="username" />
+    </mat-dialog-content>
+    <div mat-dialog-actions>
+        <button mat-button (click)="checkUsername('solo')" cdkFocusInitial>Jouer tout seul</button>
+        <button mat-button (click)="checkUsername('multi')" cdkFocusInitial>Rejoindre une partie coopérative</button>
+    </div>
+</div>
+<div *ngIf="!isUsernameMode">
+    <mat-dialog-content>
+        <h1>En attente d'un autre joueur ...</h1>
+    </mat-dialog-content>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close (click)="leaveWaiting()" cdkFocusInitial>Sortir</button>
+    </div>
+</div>

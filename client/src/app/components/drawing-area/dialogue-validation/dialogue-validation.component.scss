@@ -1,0 +1,16 @@
+:host {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px;
+    background-color: white;
+    .imageBox{
+        border: 5px solid #555;
+        width: 640px;
+        height: 480px;
+    }
+    .imageDiff{
+        border: 5px solid #555;
+    }
+}

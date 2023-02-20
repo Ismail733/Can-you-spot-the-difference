@@ -1,0 +1,77 @@
+app-gamecard {
+    width: 23%;
+    padding: 1%;
+}
+
+.gamelist {
+    display: flex;
+    position:relative;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+    margin-bottom: 180px;
+}
+
+.arrows-button-back {
+    position:absolute;
+    top:45%;
+}
+.arrows-button-next {
+    position:absolute;
+    right:1%;
+    top:50%;
+}
+
+.container {
+    display: flex;
+    position:relative;
+    margin: auto;
+    text-align: center;
+    width: 90vw;
+    top:15%;
+}
+
+button {
+    margin: 20px;
+}
+
+.arrows {
+    position: absolute;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    display: flex;
+}
+
+.arrows > #next{
+    position: relative;
+    float:right;
+}
+
+.arrows > #back{
+    position: relative;
+    float:left;
+}
+
+.container app-gamecard {
+    display:none;
+    border-radius: 15px;
+}
+
+.container app-gamecard.currentGame {
+    display:block;
+    width:100%;
+    height:400px;
+}
+
+.no-games{
+    padding: 20px;
+    font-size: 26px;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    background-color: #f96229;
+    border-radius: 5%;
+    max-width: 450px;
+    line-height: 1.8;
+}

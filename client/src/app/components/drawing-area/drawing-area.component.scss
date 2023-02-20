@@ -1,0 +1,135 @@
+:host {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px;
+    background-color: #ffffff68;
+    flex:1;
+    .dessin{
+        flex:1;
+        display: flex;
+        flex-direction: row;
+        flex:1;
+        width: 100%;
+        overflow: hidden;
+        justify-content: center;
+    }
+    
+    .button-add{
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        z-index: 99;
+        align-self: flex-start;
+    }
+    .button-delete{  
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        z-index: 99;
+        align-self: flex-end;
+        
+    }
+    .button-retour{  
+        position: absolute;
+        display: flex;
+        align-self: flex-start;
+        transform: translate(10px, 10px);
+        
+    }
+
+    .outils {
+        display: flex;
+        flex:1;
+        position: relative;
+        align-items: center;
+        justify-content: center;       
+    }
+    .outil {
+        flex:1;
+        flex-basis: 500px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 20px;
+        margin: 10px;
+        background: #fff;
+        border-radius: 6px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, .4);
+        
+    }
+    .size {
+        background-color: #000;
+        &.selectioner {
+            background-color: #bdbdbd;
+        }
+    }
+    .dessin-card {
+        margin-bottom: 8px;
+    }
+    .title-card{
+        margin-bottom: 8px;
+    }
+    .column {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &:first-child {
+            margin-bottom: 2px;
+        }
+    }
+    .row {
+        display: flex;
+        flex-direction: row;
+        width: 300px;
+        justify-content: center;
+        align-items: center;
+        &:first-child {
+            margin-bottom: 2px;
+        }
+    }
+
+    .btn {
+        cursor: pointer;
+        &.selectioner {
+            color: #bdbdbd;
+        }
+        &.disabled {
+            cursor: initial;
+            color: #bdbdbd;
+        }
+    }
+
+    .taille {
+        background-color: #000;
+        &.selectioner {
+            background-color: #bdbdbd;
+        }
+    }
+    .couleur {
+        width: 28px;
+        height: 28px;
+        border-radius: 14px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.selectioner {
+            &::after {
+                content: "";
+                width: 10px;
+                height: 10px;
+                background: #000;
+                display: flex;
+                border-radius: 5px;
+            }
+        }
+    }
+
+}

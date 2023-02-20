@@ -1,0 +1,23 @@
+<div *ngIf="games.length > 0" class="gamelist">
+    <div class="arrows-button-back">
+        <button id="back" [disabled]="isIndexInArray(0)" (click)="prevGames()">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+    </div>
+    <div class="container">
+        <app-gamecard
+            view="{{ page }}"
+            *ngFor="let game of games; let i = index"
+            [game]="game"
+            [ngClass]="{ currentGame: isIndexInArray(i) }"
+            (delete)="deleteGame($event)"
+        ></app-gamecard>
+    </div>
+    <div class="arrows-button-next">    
+        <button id="next" [disabled]="isIndexInArray(games.length - 1)" (click)="nextGames()">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+    </div>
+</div>
+<div *ngIf="games.length === 0" class="gamelist no-games"> Desolée! Il n'y pas des jeux disponibles en ce moment! Revenez plus tard</div>
+

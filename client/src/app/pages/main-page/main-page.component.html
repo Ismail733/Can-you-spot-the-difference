@@ -1,0 +1,35 @@
+<body>
+    <header class="header">
+        <div class="wrapper">
+            <div class="logo">
+                <img src="assets/images/logo-projet.png" alt="Logo Projet" />
+            </div>
+            <div class="box">
+                <h1>
+                    {{ title }}
+                </h1>
+            </div>
+        </div>
+    </header>
+    <div class="border"></div>
+    <div class="button-container">
+        <div class="options">
+            <button routerLink="/selection">
+                <img src="assets/images/logo_classique.png" />
+                <p>CLASSIQUE</p>
+            </button>
+            <button (click)="openLimitedTimeSelection()">
+                <img src="assets/images/logo_temps_limite.png" />
+                <p>TEMPS LIMITÉ</p>
+            </button>
+            <button routerLink="/admin">
+                <img src="assets/images/logo_admin.png" />
+                <p>ADMIN</p>
+            </button>
+        </div>
+    </div>
+    <div class="border"></div>
+</body>
+<app-footer></app-footer>
+
+<app-footer></app-footer>

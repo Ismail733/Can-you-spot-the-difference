@@ -1,0 +1,37 @@
+body {
+    height: 70vh;
+}
+
+body .game-container {
+    background-color: #f96029ac;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4vh 10vh;
+    margin: 1vh 0;
+}
+
+body .game-container img {
+    border: 5px solid #000000;
+}
+
+.exit-button-wrapper {
+    display: flex;
+}
+
+#exit-button {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    color: #fff;
+    background-color: red;
+    border: 3px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+#exit-button:hover {
+    color: rgb(176, 176, 176);
+    background-color: rgb(152, 4, 4);
+}

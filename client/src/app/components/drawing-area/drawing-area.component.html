@@ -1,0 +1,106 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<button mat-raised-button routerLink="/admin" class="button-retour">Retour à la page admin</button>
+<mat-card class="title-card">
+    <mat-card-title>Création Dessin</mat-card-title>
+    <mat-card-subtitle>Veuillez importer une image de type BMP 24-bit et de taille 640 par 480 pixel
+    </mat-card-subtitle>
+</mat-card>
+<mat-card class="dessin-card">
+    <mat-card-content>
+        <div class="dessin">
+            <app-image-canvas #1 [idConteneur]="idCanvas" [id]="idCanvas" [toolSelected]="toolSelected"
+                [sizeSelected]="sizeSelected" [colorSelected]="colorSelected">
+            </app-image-canvas>
+            <div class="button-add">
+                <ng-container>
+                    <input style="display: none" type="file" #fileInput1 (change)="setImage1($event)"
+                        accept="image/*" />
+                    <button mat-fab color="primary" aria-label="Example icon button with a delete icon"
+                        (click)="fileInput1.click();" class="bouton-ajout-gauche">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </ng-container>
+                <ng-container>
+                    <input style="display: none" type="file" #fileInput2 (change)="setImageAll($event)"
+                        accept="image/*" />
+                    <button mat-fab color="primary" aria-label="Example icon button with a delete icon"
+                        (click)="fileInput2.click();" class="bouton-ajout-millieu">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </ng-container>
+                <ng-container>
+                    <input style="display: none" type="file" #fileInput3 (change)="setImage2($event)"
+                        accept="image/*" />
+                    <button mat-fab color="primary" aria-label="Example icon button with a delete icon"
+                        (click)="fileInput3.click();" class="bouton-ajout-droit">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </ng-container>
+
+            </div>
+            <div class="button-delete">
+                <ng-container>
+                    <button mat-fab color="primary" aria-label="Example icon button with a delete icon"
+                        (click)="removeBackground(true,false)" class="bouton-delete-gauche">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </ng-container>
+                <ng-container>
+                    <button mat-fab color="primary" aria-label="Example icon button with a delete icon"
+                        (click)="removeBackground(true,true)" class="bouton-delete-millieu">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </ng-container>
+                <ng-container>
+                    <button mat-fab color="primary" aria-label="Example icon button with a delete icon"
+                        (click)="removeBackground(false,true);" class="bouton-delete-droit">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </ng-container>
+            </div>
+            <app-image-canvas #2 [idConteneur]="idCanvas2" [id]="idCanvas2" [toolSelected]="toolSelected"
+                [sizeSelected]="sizeSelected" [colorSelected]="colorSelected">
+            </app-image-canvas>
+        </div>
+    </mat-card-content>
+    <mat-card-content>
+        <div class="outils">
+            <div class="outil">
+                <div class="column">
+                    <div class="row">
+                        <i class="material-icons btn" [class.selectioner]="toolSelected === 'brush'"
+                            (click)="setTool('brush')" [title]="'tools.brush'">brush</i>
+                        <i class="material-icons btn" [class.selectioner]="toolSelected === 'eraser'"
+                            (click)="setTool('eraser')" [title]="'tools.eraser'">
+                            format_paint
+                        </i>
+                    </div>
+                    <div class="row">
+                        <span *ngFor="let size of sizes" class="size btn" [style.width.px]="size * 0.8 + 8"
+                            [style.height.px]="size * 0.8 + 8" [style.borderRadius.px]="size * 0.4 + 4"
+                            [class.selectioner]="sizeSelected === size" [title]="'sizes.' + size" [style.margin.px]="3"
+                            (click)="setSize(size)">
+                        </span>
+
+                    </div>
+                    <div class="row">
+                        <div *ngFor="let color of colors" [class.selectioner]="colorSelected === color" class="couleur"
+                            [ngClass]="color" [style.background]="color" [title]="'colors.' + color"
+                            [style.margin.px]="2" [style.borderColor]="'#000000'" [style.borderStyle]="'solid'"
+                            (click)="setColor(color)">
+                        </div>
+                    </div>
+                    <mat-radio-group aria-label="Select an option">
+                        <label id="example-radio-group-label">Rayon:</label>
+                        <mat-radio-button value="0" (click)="setRadius(0)">0</mat-radio-button>
+                        <mat-radio-button value="3" (click)="setRadius(3)" [checked]="true">3</mat-radio-button>
+                        <mat-radio-button value="9" (click)="setRadius(9)">9</mat-radio-button>
+                        <mat-radio-button value="15" (click)="setRadius(15)">15</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+
+        </div>
+        <button mat-raised-button (click)="validateGame()">Valider Mon Jeu</button>
+    </mat-card-content>
+</mat-card>

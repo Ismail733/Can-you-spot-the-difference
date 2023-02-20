@@ -1,0 +1,47 @@
+<div>
+    <button id="home" mat-raised-button routerLink="/home" class="button-retour">Retour à la page home</button>
+    <button id="create" mat-raised-button routerLink="/creation-jeu">Créer un jeu</button>
+</div>
+<div id="gamelist">
+    <app-gamelist></app-gamelist>
+</div> 
+<div id="options">
+    <div id="constants">
+        <b>Modification des constantes du jeux</b>
+        <p>
+            <div>Compte à rebours : 
+                <input type="number"
+                min="0" oninput="validity.valid||(value='');"
+                max="150"
+                placeholder="Temps en secondes"
+                name="countdown"
+                [(ngModel)]="countdown"
+                />
+            </div>
+            <div>Temps de pénalité : 
+                <input type="number"
+                min="0" oninput="validity.valid||(value='');"
+                max="150"
+                placeholder="Temps en secondes"
+                name="penalty"
+                [(ngModel)]="penalty"
+                />
+            </div>
+            <div>Temps gagné : 
+                <input type="number"
+                min="0" oninput="validity.valid||(value='');"
+                max="150"
+                placeholder="Temps en secondes"
+                name="bonus"
+                [(ngModel)]="bonus"
+                />
+            </div>
+    </div>
+    <div class="action-buttons">
+        <div>            
+            <button mat-raised-button (click)="deleteAllGames()">Supprimer tous les jeux</button>
+            <button mat-raised-button (click)="resetBestScores()">Réinitialiser meilleurs temps</button>
+            <button id= "resetConstants" (click)="resetConstants()" mat-raised-button>Réinitialiser constantes de jeu</button>
+    </div>
+</div>
+

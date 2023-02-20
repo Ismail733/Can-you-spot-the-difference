@@ -1,0 +1,34 @@
+<div class="cardbox">
+    <div class="flex-container">
+        <h1>{{ game.name }}</h1>
+
+        <div *ngIf="view === 'selection'; else admin">
+            <button mat-raised-button type="button" (click)="getUsername(true)">Jouer</button>
+            <button mat-raised-button type="button" (click)="getUsername(false)">{{ this.textButton }}</button>
+        </div>
+        <ng-template #admin>
+            <button mat-raised-button id="deleteButton" type="button" (click)="deleteGame()">Supprimer</button>
+            <button mat-raised-button id="resetScoreButton" (click)="resetBestScore()" type="button">Réinitialiser</button>
+        </ng-template>
+
+        <img alt="Image du jeu" src="{{ link + '/file/' + this.game.image1 + '.bmp' }}" />
+        <div class="time-container">
+            <div class="best-time-container">
+                <b>Meilleurs temps en solo :</b>
+                <div *ngFor="let timeSolo of game.bestSolo">
+                    <p>
+                    {{ timeSolo.username }} :<br>
+                    {{ 1000*timeSolo.time | date: 'mm:ss' }}</p>
+                </div>
+            </div>
+            <div class="best-time-container">
+                <b>Meilleurs temps en un contre un :</b>
+                <div *ngFor="let timeDual of game.bestDuo">
+                    <p>
+                    {{ timeDual.username }} :<br>
+                    {{ 1000*timeDual.time | date: 'mm:ss' }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

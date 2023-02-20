@@ -1,0 +1,40 @@
+<header class="header">
+    <div class="header-wrapper">
+        <div class="infos-joueur-me">
+            <div id="nom-joueur">
+                <div class="text">Joueur 1:</div>
+                <div class="box">{{ roomService.game.player1.username }}</div>
+            </div>
+            <div
+                id="differences-trouvees"
+                *ngIf="this.roomService.game.mode !== 'limited-time-solo' && this.roomService.game.mode !== 'limited-time-coop'"
+            >
+                <div class="text">Différences trouvées:</div>
+                <div class="box">{{ roomService.game.player1.differenceCounter }}/{{ this.roomService.game.nbDifferences }}</div>
+            </div>
+            <div id="indices-restants" *ngIf="this.roomService.game.mode.includes('solo')">
+                <!-- *ngIf="this.roomService.game.mode!=='temps-limite-solo' && this.roomService.game.mode!=='temps-limite-coop'"> -->
+                <div class="text">Indices restants:</div>
+                <div class="box">{{ roomService.game.player1.clueCounter }}/3</div>
+            </div>
+        </div>
+        <app-infos-game #1 class="infos-partie" [name]="name"></app-infos-game>
+        <div
+            class="infos-joueur-opponent"
+            *ngIf="this.roomService.game.mode === 'classic-multi' || this.roomService.game.mode === 'limited-time-coop'"
+        >
+            <div id="nom-joueur">
+                <div class="text">Joueur 2:</div>
+                <div class="box">{{ roomService.game.player2.username }}</div>
+            </div>
+            <div id="differences-trouvees" *ngIf="this.roomService.game.mode !== 'limited-time-coop'">
+                <div class="text">Différences trouvées:</div>
+                <div class="box">{{ roomService.game.player2.differenceCounter }}/{{ this.roomService.game.nbDifferences }}</div>
+            </div>
+            <div id="indices-restants" *ngIf="this.roomService.game.mode !== 'limited-time-coop'">
+                <div class="text">Indices restants:</div>
+                <div class="box">0/3</div>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,30 @@
+footer {
+    height: 10vh;
+    position: absolute;
+    bottom: 0;
+    width: 100%;  
+    text-align: center;
+    font-family: 'Calistoga';
+    font-style: normal;
+}
+
+.wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: fit-content;
+    background-color: #f96229;
+    padding: 1vh 2vh;
+    border-radius: 100px;
+}
+
+.team-name {
+    color: white;
+}
+
+footer p :nth-child(even) {
+    color: #FCE13D;
+}
+footer p :nth-child(odd) {
+    color: black;
+}

@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Créez votre jeu!</h2>
+<mat-dialog-content class="mat-typography">
+    <p>Veuillez entrer un nom pour votre jeu!</p>
+    <mat-form-field appearance="fill">
+        <mat-label>Nom du jeu</mat-label>
+        <input matInput [(ngModel)]="data.name">
+    </mat-form-field>
+    <div class="imageBox">
+        <img [src]="imageSource" height="480" width="640" class="'imageDiff">
+    </div>
+    <h2 mat-dialog-title>Nombre d'erreurs détectées: {{ data.nbDifferences }}</h2>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Annuler</button>
+    <button mat-button [disabled]="data.name===''" [mat-dialog-close]="{ valider: true, name: data.name }"
+        cdkFocusInitial>Créer</button>
+</mat-dialog-actions>

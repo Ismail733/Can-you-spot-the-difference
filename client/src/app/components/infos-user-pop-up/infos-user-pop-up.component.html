@@ -1,0 +1,53 @@
+<div *ngIf="this.isUsernameMode && !data.isSomeoneWaiting">
+    <mat-dialog-content>
+        <h1>Veuillez entrer un nom d'utilisateur :</h1>
+        <input matInput [(ngModel)]="username" />
+    </mat-dialog-content>
+    <div mat-dialog-actions>
+        <button mat-button (click)="checkUsername()" cdkFocusInitial>Ok</button>
+    </div>
+</div>
+<div *ngIf="this.isUsernameMode && data.isSomeoneWaiting">
+    <mat-dialog-content>
+        <h1>Veuillez entrer un nom d'utilisateur :</h1>
+        <input matInput [(ngModel)]="username" />
+    </mat-dialog-content>
+    <div mat-dialog-actions>
+        <button mat-button (click)="checkUsername()" cdkFocusInitial>Envoyer une demande</button>
+    </div>
+</div>
+<div *ngIf="this.isWaitingMode && !data.isSomeoneWaiting">
+    <mat-dialog-content>
+        <h1>En attente d'un autre joueur ...</h1>
+    </mat-dialog-content>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close (click)="leaveWaiting()" cdkFocusInitial>Sortir</button>
+    </div>
+</div>
+<div *ngIf="this.isWaitingMode && data.isSomeoneWaiting">
+    <mat-dialog-content>
+        <h1>En attente de la réponse du joueur ...</h1>
+    </mat-dialog-content>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close (click)="leaveAsking()" cdkFocusInitial>Annuler ma demande</button>
+    </div>
+</div>
+<div *ngIf="this.isRequestMode">
+    <mat-dialog-content>
+        <h1>Le joueur {{ this.usernameOpponent }} veut démarrer une partie avec vous !</h1>
+    </mat-dialog-content>
+    <div mat-dialog-actions>
+        <button mat-button (click)="acceptRequest()" cdkFocusInitial>Accepter</button>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="declineRequest()" cdkFocusInitial>Refuser</button>
+    </div>
+</div>
+<div *ngIf="this.isRequestDeclinedMode">
+    <mat-dialog-content>
+        <h1>Demande refusée</h1>
+    </mat-dialog-content>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close cdkFocusInitial>Trouver un autre jeu</button>
+    </div>
+</div>

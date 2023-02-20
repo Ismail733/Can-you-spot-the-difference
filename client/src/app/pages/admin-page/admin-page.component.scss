@@ -1,0 +1,27 @@
+button {
+    margin: 20px;
+}
+button#home{
+    float: left; 
+}
+button#create{
+    float: right;
+}
+#gamelist{
+    display: block;
+}
+#options{
+    display: flex;
+    justify-content: space-around;
+}
+#constants{
+    font-size: 16px;
+    border-radius: 5%;
+    background-color: #ff9900;
+    padding: 15px;
+    box-shadow: 5px 10px 18px rgba(0, 0, 0, 0.692);
+    margin:15px;
+}
+input {
+    display: flex;
+}

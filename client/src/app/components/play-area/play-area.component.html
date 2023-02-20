@@ -1,0 +1,16 @@
+<div class="container">
+    <app-image-canvas-game
+        #1
+        [idContainer]="idCanvasOriginal"
+        [imageURL]="environment.serverUrl + '/file/' + this.roomService.game.image1+'.bmp'"
+        [id]="idCanvasOriginal"
+        (click)="functionClick($event, true)"
+    ></app-image-canvas-game>
+    <app-image-canvas-game
+        #2
+        [idContainer]="idCanvasModified"
+        [imageURL]="environment.serverUrl + '/file/' + this.roomService.game.image2+'.bmp'"
+        [id]="idCanvasModified"
+        (click)="functionClick($event, false)"
+    ></app-image-canvas-game>
+</div>

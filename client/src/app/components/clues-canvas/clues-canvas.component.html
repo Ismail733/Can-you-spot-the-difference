@@ -1,0 +1,10 @@
+<button
+    *ngIf="this.isModeSolo(this.roomService.game.mode)"
+    id="indice-button"
+    mat-raised-button
+    color="primary"
+    class="btn"
+    (click)="this.onMouseClick()"
+>
+    <em>Indice (i)</em>
+</button>
