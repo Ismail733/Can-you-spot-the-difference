@@ -11,21 +11,11 @@
 #The application has a responsive design and can be played on desktop and mobile devices.
 
 
-## Technologies Used
-
-#The game is built using HTML, SCSS.
-#AngularJS
-#TypeScript
-#NodeJS
-#ExpressJS
-#MongoDB
-#SocketIO
-
 ## Installation
 
 To install and run the project locally, follow these steps:
 
-1. Clone the repository: git clone https://github.com/yourusername/spot-the-difference.git
+1. Clone the repository: git clone https://github.com/yourusername/Can-you-spot-the-difference.git
 2. Navigate to the project directory: cd spot-the-difference
 3. Install the necessary dependencies: npm install
 
